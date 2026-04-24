@@ -44,9 +44,12 @@ Hopper-Debugger_oky_EcommerceAnalytics/
 │   ├── data_dictionary.md              # Data schema documentation
 │   └── gate1_submission.md             # Submission documentation
 ├── notebooks/                          # Jupyter notebooks for analysis
-├── reports/                            # Generated reports and findings
+├── reports/                            # Generated EDA and statistical outputs
 ├── scripts/
-│   └── etl_pipeline.py                 # Data processing and ETL scripts
+│   ├── eda_analysis.py                 # Runnable exploratory data analysis
+│   ├── statistical_analysis.py         # Runnable statistical analysis
+│   ├── analysis_utils.py               # Shared analysis helpers
+│   └── run_analysis.py                 # Runs Member 2 analysis pipeline
 └── tableau/
     ├── dashboard_links.md              # Links to Tableau dashboards
     └── screenshots/                    # Dashboard screenshots
@@ -72,6 +75,15 @@ Hopper-Debugger_oky_EcommerceAnalytics/
 - Dataset selection completed
 - Data dictionary prepared
 - Gate 1 submission in progress
+- EDA and statistical analysis completed
+
+## Current Deliverables
+
+- `notebooks/03_eda.ipynb` — exploratory analysis of sales, delivery, customers, and regions
+- `notebooks/04_statistical_analysis.ipynb` — hypothesis testing, correlation analysis, regression, and segmentation
+- `scripts/eda_analysis.py` — reproducible EDA code
+- `scripts/statistical_analysis.py` — reproducible statistical-analysis code
+- `scripts/run_analysis.py` — single entrypoint for Member 2 work
 
 ## Team
 
