@@ -28,28 +28,14 @@ Key characteristics:
 ```
 Hopper-Debugger_oky_EcommerceAnalytics/
 ├── README.md
-├── data/
-│   ├── raw/                            # Original datasets
-│   │   ├── olist_customers_dataset.csv
-│   │   ├── olist_geolocation_dataset.csv
-│   │   ├── olist_order_items_dataset.csv
-│   │   ├── olist_order_payments_dataset.csv
-│   │   ├── olist_order_reviews_dataset.csv
-│   │   ├── olist_orders_dataset.csv
-│   │   ├── olist_products_dataset.csv
-│   │   ├── olist_sellers_dataset.csv
-│   │   └── product_category_name_translation.csv
-│   └── processed/                      # Cleaned and transformed data
-├── docs/
-│   ├── data_dictionary.md              # Data schema documentation
-│   └── gate1_submission.md             # Submission documentation
+├── data/                               # Cleaned and transformed data
+├── ml/                                 # Machine Learning components
+│   ├── backend/                        # FastAPI prediction service
+│   ├── frontend/                       # React/Vite visualization dashboard
+│   └── src/                            # Core ML logic and inference
 ├── notebooks/                          # Jupyter notebooks for analysis
-├── reports/                            # Generated reports and findings
-├── scripts/
-│   └── etl_pipeline.py                 # Data processing and ETL scripts
-└── tableau/
-    ├── dashboard_links.md              # Links to Tableau dashboards
-    └── screenshots/                    # Dashboard screenshots
+├── scripts/                            # Data processing and ETL scripts
+└── tableau/                            # Tableau dashboards and screenshots
 ```
 
 ## Approach
