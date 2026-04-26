@@ -32,6 +32,9 @@ Start the FastAPI server using `uvicorn`:
 ```bash
 uvicorn app:app --reload --port 8000
 ```
+OR 
+# 3. Run using the direct python command (more stable than the uvicorn CLI)
+python app.py
 
 The API will be available at [http://127.0.0.1:8000](http://127.0.0.1:8000).
 

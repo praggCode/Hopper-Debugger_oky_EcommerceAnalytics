@@ -1,4 +1,4 @@
-const API_BASE_URL = ""; // Relative to the domain serving the frontend
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || ""; // Use env var for cross-domain (Vercel), else relative (Render)
 
 async function postJson(path, payload) {
   const response = await fetch(`${API_BASE_URL}${path}`, {
