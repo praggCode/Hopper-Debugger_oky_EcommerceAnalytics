@@ -5,8 +5,7 @@ import sys
 
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.staticfiles import StaticFiles
-from fastapi.responses import FileResponse, JSONResponse
+from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 import os
 import uvicorn
@@ -30,9 +29,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# --- Frontend Integration ---
-# Calculate path to frontend/dist relative to this file
-FRONTEND_DIST = Path(__file__).resolve().parents[1] / "frontend" / "dist"
+
 
 
 class LateDeliveryRequest(BaseModel):
@@ -72,26 +69,9 @@ def customer_segment_prediction(request: CustomerSegmentRequest) -> dict:
     return predict_customer_segment(request.model_dump())
 
 
-# Mount frontend static files
-# We check if the directory exists first to avoid errors during development if not built yet
-if FRONTEND_DIST.exists():
-    app.mount("/", StaticFiles(directory=str(FRONTEND_DIST), html=True), name="frontend")
-else:
-    @app.get("/")
-    def read_root():
-        return {"message": "Frontend not built. Run 'npm run build' in ml/frontend."}
-
-
-@app.exception_handler(404)
-async def catch_all_handler(request, exc):
-    # If the request is for an API route, return 404 as usual
-    if request.url.path.startswith("/predict") or request.url.path.startswith("/health"):
-        return JSONResponse(status_code=404, content={"detail": "Not Found"})
-    
-    # Otherwise, serve index.html for SPA support
-    if FRONTEND_DIST.exists():
-        return FileResponse(FRONTEND_DIST / "index.html")
-    return JSONResponse(status_code=404, content={"detail": "Not Found"})
+@app.get("/")
+def read_root():
+    return {"message": "Olist ML Backend is running"}
 
 
 if __name__ == "__main__":
